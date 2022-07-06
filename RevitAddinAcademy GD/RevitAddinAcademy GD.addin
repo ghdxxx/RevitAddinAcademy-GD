@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>Command RevitAddinAcademy GD</Text>
+    <Description>Some description for RevitAddinAcademy GD</Description>
+    <Assembly>RevitAddinAcademy GD.dll</Assembly>
+    <FullClassName>RevitAddinAcademy_GD.Command</FullClassName>
+    <ClientId>5f2071ea-b716-4a9c-bdf1-13028d8bed74</ClientId>
+    <VendorId>com.typepad.thebuildingcoder</VendorId>
+    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>Application RevitAddinAcademy GD</Name>
+    <Assembly>RevitAddinAcademy GD.dll</Assembly>
+    <FullClassName>RevitAddinAcademy_GD.App</FullClassName>
+    <ClientId>{5A0B82DB-D57C-4559-9D75-FB1B73F2E5D7}</ClientId>
+    <VendorId>com.typepad.thebuildingcoder</VendorId>
+    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
