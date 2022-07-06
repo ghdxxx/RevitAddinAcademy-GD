@@ -25,7 +25,9 @@ namespace RevitAddinAcademy_GD
             Application app = uiapp.Application;
             Document doc = uidoc.Document;
 
-            TaskDialog.Show("Hello", "This is my first comman add-in");
+            TaskDialog.Show("Hello", "This is my first command add-in");
+            TaskDialog.Show("Ennead", "Follow Revit Standards");
+            
 
 
 
