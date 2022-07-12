@@ -9,6 +9,24 @@
     <VendorId>com.typepad.thebuildingcoder</VendorId>
     <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
   </AddIn>
+	<AddIn Type="Command">
+		<Text>Command01</Text>
+		<Description>Some description for RevitAddinAcademy GD</Description>
+		<Assembly>RevitAddinAcademy GD.dll</Assembly>
+		<FullClassName>RevitAddinAcademy_GD.Command01</FullClassName>
+		<ClientId>ED7F8F02-11CF-42AC-8EB8-E62592ACE8B3</ClientId>
+		<VendorId>com.typepad.thebuildingcoder</VendorId>
+		<VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+	</AddIn>
+	<AddIn Type="Command">
+		<Text>Fizz Buzz</Text>
+		<Description>Some description for RevitAddinAcademy GD</Description>
+		<Assembly>RevitAddinAcademy GD.dll</Assembly>
+		<FullClassName>RevitAddinAcademy_GD.Command01Challenge</FullClassName>
+		<ClientId>12C4B3F8-DC07-450E-8D48-863EA559E24F</ClientId>
+		<VendorId>com.typepad.thebuildingcoder</VendorId>
+		<VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+	</AddIn>
   <AddIn Type="Application">
     <Name>Application RevitAddinAcademy GD</Name>
     <Assembly>RevitAddinAcademy GD.dll</Assembly>
