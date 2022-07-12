@@ -7,14 +7,14 @@ using Autodesk.Revit.UI.Selection;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO; 
+using System.IO;
 
 #endregion
 
 namespace RevitAddinAcademy_GD
 {
     [Transaction(TransactionMode.Manual)]
-    public class Command01Challenge: IExternalCommand
+    public class Command01Challenge : IExternalCommand
     {
         public Result Execute(
           ExternalCommandData commandData,
@@ -26,79 +26,59 @@ namespace RevitAddinAcademy_GD
             Application app = uiapp.Application;
             Document doc = uidoc.Document;
 
-           
-        
-           
 
-            double offset = 0.05;
-            double offsetcalc = offset * doc.ActiveView.Scale;
-            XYZ currentpoint = new XYZ(0, 0, 0);
-            XYZ offsetpoint = new XYZ(0, offsetcalc, 0);
-            string text = "";
-
-
-
-          
-            FilteredElementCollector collector = new FilteredElementCollector(doc);
-            collector.OfClass(typeof(TextNoteType));
-
-            Transaction t = new Transaction(doc, "create FizzBuzz Text");
-            t.Start();
 
             int range = 100;
 
-            for (int i = 1; i <= range; i++)
+            XYZ inspoint = new XYZ(0, 0, 0);
+            double offset = 0.041;
+            double calcoffset = offset * doc.ActiveView.Scale;
+            XYZ offsetpoint = new XYZ(0,calcoffset,0);
 
+
+            FilteredElementCollector collector = new FilteredElementCollector(doc);
+            collector.OfClass(typeof(TextNoteType));
+
+            using(Transaction t = new Transaction (doc))
 
             {
-                if (i % 3 == 0 && i % 5 == 0)
+                t.Start("FizzBuzz");
 
-                { 
-                    text = "FizzBuzz";
-                }
-           
-                else if (i % 5 == 0)
+                for (int i = 1; i <= range; i++)
                 {
-                    text = "Buzz";
-                }
+                    string result = "";
 
-                else if (i % 3 == 0)
-                {
-                    text = "Fizz";
-                }
+                    if (i % 3 == 0)
+                    {
+                        result = "FIZZ";
+                    }
 
+                    if (i % 5 == 0)
+                    {
+                        result=result + "BUZZ";
+                    }
 
-          
-                 else
-                {
-                    text = i.ToString();
+                    if (i % 3 != 0 && i % 5 != 0)
 
-                }
-                        
+                    {
+                        result = i.ToString();
+                    }
 
+                Debug.Print(result);
 
-                TextNote textNote = TextNote.Create(doc, doc.ActiveView.Id, currentpoint, text, collector.FirstElementId());
-                currentpoint = currentpoint. Subtract (offsetpoint); 
+                TextNote curNote = TextNote.Create(doc, doc.ActiveView.Id, inspoint, result, collector.FirstElementId());
+                inspoint = inspoint.Subtract(offsetpoint);
+
 
             }
+                t.Commit ();
+        }
 
 
-            t.Commit();
-
-            t.Dispose();
-
-
+           
             return Result.Succeeded;
 
         }
-
-        internal double Method01(double a, double b)
-        {
-            double c = a + b;
-
-            Debug.Print("Got here" + c.ToString());
-
-            return c;
-        }
     }
 }
+     
